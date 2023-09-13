@@ -3,7 +3,7 @@ use Quan_ly_diem_thi;
 create table Hoc_sinh(
 Ma_HS varchar(20) primary key,
 Ten_HS varchar(50),
-Ngay_sinh datetime,
+Ngay_sinh date,
 Lop varchar(20),
 Gioi_tinh varchar(20)
 );

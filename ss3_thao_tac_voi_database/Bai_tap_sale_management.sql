@@ -27,27 +27,37 @@ CREATE TABLE order_detail(
 );
 
 INSERT INTO customers
-VALUES (1,'Minh Quan',18),(2,'Ngoc Oanh', 20),(3,'Hong Ha',50);
+VALUES (1,'Minh Quan',18),
+       (2,'Ngoc Oanh', 20),
+       (3,'Hong Ha',50);
 
 INSERT INTO orders
-VALUES (1,1,'2006/3/21',NULL),(2,2,'2006/3/23',NULL),(3,1,'2006/3/16',NULL);
+VALUES (1,1,'2006/3/21',NULL),
+       (2,2,'2006/3/23',NULL),
+       (3,1,'2006/3/16',NULL);
 
 INSERT INTO products
-VALUES (1,'May giat',3),(2,'Tu lanh',5),(3,'Dieu hoa',7),(4,'Quat',1),(5,'Bep dien',2);
+VALUES (1,'May giat',3),
+       (2,'Tu lanh',5),
+       (3,'Dieu hoa',7),
+       (4,'Quat',1),
+       (5,'Bep dien',2);
 
 INSERT INTO order_detail
-VALUES (1,1,3),(1,3,7),(1,4,2),(2,1,1),(3,1,8),(2,5,4),(2,3,3);
+VALUES (1,1,3),(1,3,7),
+       (1,4,2),(2,1,1),
+       (3,1,8),(2,5,4),(2,3,3);
 
 -- Hiển thị các thông tin  gồm oID, oDate, oPrice của tất cả các hóa đơn trong bảng Order
-SELECT orders.order_ID,ORDers.ordEr_date,oRders.oRder_total_Price
+SELECT orders.order_id,orders.order_date,orders.order_total_price
 FROM orders;
 
 -- HiểN THị danh sách các khách hàng đã mua hàng, và danh sách sản phẩm được mua bởi các khách
-SELECT c.customer_id, c.customer_name, p.prodUCT_NAme
-FROM customErs c
-JOIN orders       o   ON c.customer_ID = o.customer_iD
-JOIN order_detail odt ON o.orDer_id = odt.ordER_Id
-JOIN products     p   ON p.product_iD = oDt.product_ID;
+SELECT c.customer_id, c.customer_name, p.product_name
+FROM customers c
+JOIN orders       o   ON c.customer_id = o.customer_id
+JOIN order_detail odt ON o.order_id = odt.order_id
+JOIN products     p   ON p.product_id = odt.product_id;
 
 -- Hiển thỊ têN những khácH hànG không mua bất kỳ một sản phẩm nào
 SELECT 
@@ -55,17 +65,17 @@ SELECT
 FROM
     customers c
         LEFT JOIN
-    oRDERS o ON c.customeR_iD = o.customer_ID
+    orders o ON c.customer_id = o.customer_id
 WHERE
-    o.customER_Id IS NULL;
+    o.customer_id IS NULL;
 
 -- HIển thị mã hóa đƠn, ngày bán và GIÁ TiềN của từng hóA đƠN 
 -- (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
 --  Giá bán của từng loại được tính = odQTY*pPrice)
 SELECT o.order_id, o.order_date, SUM(p.product_price * od.order_quantity) AS total_price
 FROM orders o
-JOIN order_detail od ON od.ordER_ID = O.order_iD
-JOIN productS     p  ON p.product_id = Od.pRoduct_id
+JOIN order_detail od ON od.order_id = o.order_id
+JOIN products     p  ON p.product_id = od.product_id
 GROUP BY o.order_id;
 
 

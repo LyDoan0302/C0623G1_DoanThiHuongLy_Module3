@@ -5,7 +5,7 @@ CREATE TABLE class
     class_id   INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
     class_name VARCHAR(60) NOT NULL,
     start_date DATE        NOT NULL,
-    Status     BIT
+    status     BIT
 );
 CREATE TABLE student
 (
@@ -61,22 +61,56 @@ VALUES (1, 1, 8, 1),
 -- Hiển thị danh sách tất cả các học viên
 SELECT * 
 FROM student;
+
 -- Hiển thị danh sách các học viên đang theo học.
 SELECT *
 FROM student
-WHERE Status = true;
--- Hiển thị danh sách các môn học có thời gian học nhỏ hơn 10 giờ.
+WHERE status= TRUE;
+
+-- HIỂN thị danh sÁCH các môn học có thời gian học nhỏ hơn 10 giờ.
 SELECT *
 FROM subject
-WHERE credit < 10;       
--- Hiển thị danh sách học viên lớp A1
+WHERE credit < 10;    
+   
+-- HIỂN thị danh SÁCH học viên lỚP A1
 SELECT *
 FROM student s
 JOIN class c ON s.class_id=c.class_id
 WHERE c.class_name='A1';
--- Hiển thị điểm môn CF của các học viên.
+
+-- HIển thị điểm mÔn CF của CÁC Học viên.
 SELECT *
 FROM student s
 JOIN mark m ON s.student_id = m.student_id
 JOIN subject sb ON m.sub_id = sb.sub_id
 WHERE sb.sub_name = 'CF';
+
+-- HIển thị tất cẢ cáC sinh vIên Có tên bẮT ĐẦu bẢng ký tự ‘h’
+SELECT *
+FROM student s
+WHERE s.student_name LIKE 'h%';
+
+-- Hiển thị các thông tin lớp học có THỜI GiAn BẮT đầu vào thÁNG 12.
+SELECT *
+FROM class c
+WHERE MONTH(start_date) = 12;
+
+-- Hiển thị tất cả các thông tin môn học có credit trong khoảNG TỪ 3-5.
+SELECT *
+FROM SUbJECT
+WHERE credit >= 3 AND credit <= 5;
+
+-- Thay đổi mã lớp(ClassID) của sinh viên có tên ‘Hung’ là 2.
+SET sql_safe_updates = 0;
+UPDATE student
+SET class_id = 2
+WHERE student_name = 'Hung';
+SET sql_safe_updates = 1;
+
+-- Hiển thị các thông tin: StudentNAMe, SubName, Mark. 
+-- DỮ LIỆU sắp xếp THEo điểm thi (MaRK) Giảm dần. nếu tRùng sắp tHEO tên tăng dần.
+SELECT s.student_name, sb.sub_name, m.mark
+FROM student s
+JOIN mark m ON m.student_id = s.student_id
+JOIN subject sb ON sb.sub_id = m.sub_id
+ORDER BY m.mark DESC, s.student_name ASC;
