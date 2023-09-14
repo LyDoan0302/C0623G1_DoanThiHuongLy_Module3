@@ -163,4 +163,4 @@ SELECT s.student_id, AVG(m.mark) AS avg_mark
 FROM student s
 JOIN mark m ON s.student_id = m.student_id
 GROUP BY s.student_id
-ORDER BY avg_mark desc;
+ORDER BY avg_mark DESC;
