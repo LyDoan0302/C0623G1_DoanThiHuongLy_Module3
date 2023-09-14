@@ -13,7 +13,7 @@ CREATE TABLE student
     student_name VARCHAR(30) NOT NULL,
     address      VARCHAR(50),
     phone        VARCHAR(20),
-    Status       BIT,
+    status       BIT,
     class_id     INT         NOT NULL,
     FOREIGN KEY (class_id) REFERENCES class (class_id)
 );
@@ -21,26 +21,26 @@ CREATE TABLE subject
 (
     sub_id   INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
     sub_name VARCHAR(30) NOT NULL,
-    credit   TINYINT     NOT NULL DEFAULT 1 CHECK ( Credit >= 1 ),
-    Status   BIT                  DEFAULT 1
+    credit   TINYINT     NOT NULL DEFAULT 1 CHECK ( credit >= 1 ),
+    status   BIT                  DEFAULT 1
 );
 
 CREATE TABLE mark (
-    mark_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    sub_id INT NOT NULL,
-    student_id INT NOT NULL,
-    mark FLOAT DEFAULT 0 CHECK (mark BETWEEN 0 AND 100),
+    mark_id    INT     NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    sub_id     INT     NOT NULL,
+    student_id INT     NOT NULL,
+    mark       FLOAT   DEFAULT 0 CHECK (mark BETWEEN 0 AND 100),
     exam_times TINYINT DEFAULT 1,
     UNIQUE (sub_id , student_id),
-    FOREIGN KEY (sub_id) REFERENCES subject (sub_id),
+    FOREIGN KEY (sub_id)     REFERENCES subject (sub_id),
     FOREIGN KEY (student_id) REFERENCES student (student_id)
 );
 INSERT INTO class
 VALUES (1, 'A1', '2008-12-20', 1);
-INSERT INTO Class
+INSERT INTO class
 VALUES (2, 'A2', '2008-12-22', 1);
-INSERT INTO Class
-VALUES (3, 'B3', current_date, 0);
+INSERT INTO class
+VALUES (3, 'B3', CURRENT_DATE, 0);
 
 INSERT INTO student 
 VALUES (1,'Hung', 'Ha Noi', '0912113113', 1, 1),
@@ -76,7 +76,7 @@ WHERE credit < 10;
 SELECT *
 FROM student s
 JOIN class c ON s.class_id=c.class_id
-WHERE c.class_name='A1';
+WHERE c.class_name = 'A1';
 
 -- HIển thị điểm mÔn CF của CÁC Học viên.
 SELECT *
@@ -97,7 +97,7 @@ WHERE MONTH(start_date) = 12;
 
 -- Hiển thị tất cả các thông tin môn học có credit trong khoảNG TỪ 3-5.
 SELECT *
-FROM SUbJECT
+FROM subject
 WHERE credit >= 3 AND credit <= 5;
 
 -- Thay đổi mã lớp(ClassID) của sinh viên có tên ‘Hung’ là 2.
@@ -114,3 +114,53 @@ FROM student s
 JOIN mark m ON m.student_id = s.student_id
 JOIN subject sb ON sb.sub_id = m.sub_id
 ORDER BY m.mark DESC, s.student_name ASC;
+
+-- Hiển thị số lượng sinh viên ở từng nơi
+SELECT s.address, COUNT(s.student_id)
+FROM student s
+GROUP BY s.address;
+
+-- Tính điểm trung bình các môn học của mỗi học viên
+SELECT s.student_id, s.student_name, AVG(m.mark) AS avg_of_mark
+FROM student s
+JOIN mark m ON s.student_id = m.student_id
+GROUP BY s.student_id;
+
+-- Hiển thị những bạn học viên co điểm trung bình các môn học lớn hơn 15
+SELECT s.student_id, s.student_name, AVG(m.mark) AS mark_avg
+FROM student s
+JOIN mark m ON s.student_id = m.student_id
+GROUP BY s.student_id, s.student_name
+HAVING mark_avg > 5;
+
+-- Hiển thị thông tin các học viên có điểm trung bình lớn nhất.
+SELECT s.student_name, s.student_id, avg(m.mark)
+FROM student s
+JOIN mark m ON s.student_id = m.student_id
+GROUP BY s.student_id
+HAVING AVG(m.mark) >= (
+SELECT AVG(mark)
+FROM mark)
+;
+
+-- Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
+SELECT * 
+FROM subject
+WHERE credit  = (
+SELECT MAX(credit)
+FROM subject); 
+
+-- Hiển thị các thông tin môn học có điểm thi lớn nhất.
+SELECT *
+FROM subject s
+LEFT JOIN mark m ON s.sub_id = m.sub_id
+WHERE m.mark = (
+SELECT MAX(mark)
+FROM mark);
+
+-- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+SELECT s.student_id, AVG(m.mark) AS avg_mark
+FROM student s
+JOIN mark m ON s.student_id = m.student_id
+GROUP BY s.student_id
+ORDER BY avg_mark desc;

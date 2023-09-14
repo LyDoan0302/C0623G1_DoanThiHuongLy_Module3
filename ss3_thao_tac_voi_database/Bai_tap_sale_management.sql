@@ -60,14 +60,10 @@ JOIN order_detail odt ON o.order_id = odt.order_id
 JOIN products     p   ON p.product_id = odt.product_id;
 
 -- Hiển thỊ têN những khácH hànG không mua bất kỳ một sản phẩm nào
-SELECT 
-    c.customer_id, c.customer_name
-FROM
-    customers c
-        LEFT JOIN
-    orders o ON c.customer_id = o.customer_id
-WHERE
-    o.customer_id IS NULL;
+SELECT c.customer_id, c.customer_name
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.customer_id IS NULL;
 
 -- HIển thị mã hóa đƠn, ngày bán và GIÁ TiềN của từng hóA đƠN 
 -- (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
