@@ -475,18 +475,47 @@ SELECT ma_loai_khach
 FROM temp_khach_hang
 );
 -- 18.	Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
-alter table khach_hang
-add column is_deleted bit;
+ALTER TABLE khach_hang
+ADD COLUMN is_deleted BIT;
 
-set sql_safe_updates = 0;
-update khach_hang
-set is_deleted = 1
-where ma_khach_hang in ( select ma_khach_hang from
+SET sql_safe_updates = 0;
+UPDATE khach_hang
+SET is_deleted = 1
+WHERE ma_khach_hang IN ( SELECT ma_khach_hang FROM
 (SELECT kh.ma_khach_hang
-from khach_hang kh
-join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
-where year(hd.ngay_lam_hop_dong) < 2021) as temp
+FROM khach_hang kh
+JOIN hop_dong hd ON kh.ma_khach_hang = hd.ma_khach_hang
+WHERE YEAR(hd.ngay_lam_hop_dong) < 2021) AS temp
 );
+SET sql_safe_updates = 1;
+
+-- 19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+
+SET sql_safe_updates = 0;
+UPDATE dich_vu_di_kem
+SET gia = gia * 2
+WHERE ma_dich_vu_di_kem IN (SELECT ma_dich_vu_di_kem
+FROM (
+SELECT hdc.ma_dich_vu_di_kem
+FROM  hop_dong_chi_tiet hdc
+JOIN dich_vu_di_kem dvk ON dvk.ma_dich_vu_di_kem = hdc.ma_dich_vu_di_kem
+JOIN hop_dong hd ON hd.ma_hop_dong = hdc.ma_hop_dong
+WHERE YEAR(hd.ngay_lam_hop_dong) = '2020' 
+GROUP BY hdc.ma_dich_vu_di_kem
+HAVING SUM(hdc.so_luong) > 10) AS temp 
+);
+SET sql_safe_updates = 1;
+-- 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, 
+-- thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), 
+-- ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+SELECT nv.ma_nhan_vien, nv.ho_ten, nv.email, nv.so_dien_thoai, nv.ngay_sinh, nv.dia_chi
+FROM nhan_vien nv
+UNION 
+SELECT kh.ma_khach_hang, kh.ho_ten, kh.email, kh.so_dien_thoai, kh.ngay_sinh, kh.dia_chi
+FROM khach_hang kh
+;
+
+
 
 
 
