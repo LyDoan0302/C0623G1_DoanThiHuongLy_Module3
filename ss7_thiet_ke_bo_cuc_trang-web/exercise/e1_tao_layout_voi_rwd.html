@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao layout voi RWD</title>
+    <link rel="stylesheet" href="e1_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        .login {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<!--Tao header-->
+<div id="header">
+    <div class="row">
+        <div class="col-6">
+            <div class="menu">
+                <p>Logo</p>
+                <p>Home</p>
+                <p>About</p>
+                <p>Projects</p>
+                <p>Contact</p>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="login">
+                <p>
+                    <i class="fa-solid fa-arrow-right-to-bracket" style="color: #da1010;"></i>
+                    Login
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--Tao left sidebar-->
+<div id="left_sidebar">
+    <p class="link">Link</p>
+    <p class="link">Link</p>
+    <p class="link">Link</p>
+</div>
+<!--Tao main-->
+<div id="main">
+    <row id="welcome">
+        <h3>WELCOME</h3>
+        <p class="text">
+            Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document
+            written in a markup language such as HTML or XML (including XML dialects such as SVG, MathML or XHTML).
+            [1] CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.[2]
+        </p>
+
+    </row>
+    <row id="test">
+        <h4>Test</h4>
+        <p id="content_test">
+            Cascading Style Sheets (CSS).........
+        </p>
+
+    </row>
+</div>
+<!--Tao right sidebar-->
+<div id="right_sidebar">
+    <p class="ads">ADS</p>
+    <p class="ads">ADS</p>
+</div>
+<!--Tao footer-->
+<div id="footer">
+    <p class="footer_text">Footer text</p>
+</div>
+</body>
+</html>
