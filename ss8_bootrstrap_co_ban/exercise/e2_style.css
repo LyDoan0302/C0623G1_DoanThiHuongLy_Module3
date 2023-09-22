@@ -1,0 +1,29 @@
+.nav-link.active {
+    font-weight: 600;
+}
+.nav-link:hover {
+    border-bottom: 2px #333 solid;
+}
+.navbar-brand {
+    border-right: 2px #111 solid;
+}
+.navbar-brand img {
+    margin: 0 20px;
+}
+.dark-mode span {
+    padding: 0 20px;
+}
+video.fullscreen {
+    position: absolute;
+    z-index: 0;
+    object-fit: cover;
+    width:100%;
+}
+#hero .container {
+    position: relative;
+    z-index: 1;
+    top: 200px;
+}
+#hero .container h1 {
+    font-size: 70px;
+}
