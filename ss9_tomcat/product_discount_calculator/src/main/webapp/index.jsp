@@ -27,10 +27,10 @@
     <input type="text" name="description" id="description" size="30"><br>
 
     <label for="price">List Price:</label><br>
-    <input type="text" name="price" id="price" size="30"><br>
+    <input type="number" name="price" id="price" size="30"><br>
 
     <label for="discountPercent">Discount Percent:</label><br>
-    <input type="text" name="discountPercent" id="discountPercent"><br>
+    <input type="number" name="discountPercent" id="discountPercent"><br>
 
     <input type="submit" value="Calculate Discount">
 
