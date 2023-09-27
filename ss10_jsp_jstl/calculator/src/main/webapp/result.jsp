@@ -7,10 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Calculated Result</title>
+    <style>
+        p{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>RESULT: </h1>
+<br>
+<p style="border: blue 1px solid" >
+  ${result}
+</p>
+</body>
 </html>
