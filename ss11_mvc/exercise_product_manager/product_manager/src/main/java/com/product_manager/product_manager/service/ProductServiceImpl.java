@@ -1,8 +1,8 @@
-package com.product_manager.product_manager.model.service;
+package com.product_manager.product_manager.service;
 
-import com.product_manager.product_manager.model.model.Product;
-import com.product_manager.product_manager.model.repository.IProductRepository;
-import com.product_manager.product_manager.model.repository.ProductRepositoryImpl;
+import com.product_manager.product_manager.model.Product;
+import com.product_manager.product_manager.repository.IProductRepository;
+import com.product_manager.product_manager.repository.ProductRepositoryImpl;
 
 import java.util.List;
 

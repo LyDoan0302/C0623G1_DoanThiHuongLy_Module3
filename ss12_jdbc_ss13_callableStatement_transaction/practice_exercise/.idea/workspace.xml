@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8b26cef5-41e6-49ba-b021-17ea6d309c33" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../ss11_mvc/.idea/ss11_mvc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/ss12_jdbc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_resort_quan_ly.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_resort_quan_ly.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/controller/ProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/controller/ProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/model/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/model/repository/IProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/repository/IProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/model/repository/ProductRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/repository/ProductRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/model/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/service/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/model/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss11_mvc/exercise_product_manager/product_manager/src/main/java/com/product_manager/product_manager/service/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/practice.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_css/exercise/.idea/bootraps.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss6_css/exercise/.idea/bootraps.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss8_bootrstrap_co_ban/exercise/e2_landing_web.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss8_bootrstrap_co_ban/exercise/e2_landing_web.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_tomcat/Login/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss9_tomcat/Login/.idea/gradle.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2W3Phmfd3XnGmIqc25V3NkMgUSh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/mac/Documents/GitHub/C0623G1_DoanThiHuongLy_Module3/ss12_jdbc/practice_exercise",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8b26cef5-41e6-49ba-b021-17ea6d309c33" name="Changes" comment="" />
+      <created>1695958411428</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695958411428</updated>
+      <workItem from="1695958413116" duration="95000" />
+      <workItem from="1696215741722" duration="403000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

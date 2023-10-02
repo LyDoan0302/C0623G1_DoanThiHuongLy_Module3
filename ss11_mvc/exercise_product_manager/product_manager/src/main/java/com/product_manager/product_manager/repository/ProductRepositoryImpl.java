@@ -1,6 +1,6 @@
-package com.product_manager.product_manager.model.repository;
+package com.product_manager.product_manager.repository;
 
-import com.product_manager.product_manager.model.model.Product;
+import com.product_manager.product_manager.model.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;

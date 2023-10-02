@@ -1,6 +1,6 @@
-package com.product_manager.product_manager.model.service;
+package com.product_manager.product_manager.service;
 
-import com.product_manager.product_manager.model.model.Product;
+import com.product_manager.product_manager.model.Product;
 
 import java.util.List;
 
